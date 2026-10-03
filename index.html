@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepGuard AI | Deepfake Detection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-mark">D</div>
+      <div>
+        <h1>DeepGuard AI</h1>
+        <span>Multimodal Deepfake Detection</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#detector">Detector</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <span class="eyebrow">AI-POWERED FORENSIC ANALYSIS</span>
+        <h2>Detect manipulated <span>images, videos & audio.</span></h2>
+        <p>Upload your media and prepare it for deepfake analysis. The interface is designed to support image, video-only, audio-only, and multimodal video analysis.</p>
+        <a class="primary-btn" href="#detector">Start Detection</a>
+      </div>
+      <div class="hero-card">
+        <div class="scan-ring"></div>
+        <div class="shield">◈</div>
+        <p>AI Media Verification</p>
+        <small>Visual + Audio Evidence</small>
+      </div>
+    </section>
+
+    <section id="detector" class="detector-section">
+      <div class="section-heading">
+        <span class="eyebrow">DETECTOR</span>
+        <h2>Upload media for analysis</h2>
+        <p>Select the type of media you want to check.</p>
+      </div>
+
+      <div class="mode-tabs">
+        <button class="mode active" data-mode="image">Image</button>
+        <button class="mode" data-mode="video">Video</button>
+        <button class="mode" data-mode="audio">Audio</button>
+        <button class="mode" data-mode="video-audio">Video + Audio</button>
+      </div>
+
+      <div class="detector-grid">
+        <div class="upload-panel">
+          <div id="dropZone" class="drop-zone">
+            <input id="fileInput" type="file" hidden>
+            <div class="upload-icon">↑</div>
+            <h3 id="uploadTitle">Upload an image</h3>
+            <p id="uploadText">Drag & drop your image here, or click to browse.</p>
+            <button id="browseBtn" class="secondary-btn">Choose File</button>
+            <p id="fileName" class="file-name"></p>
+          </div>
+
+          <div id="previewWrap" class="preview-wrap hidden">
+            <div class="preview-header">
+              <strong>Preview</strong>
+              <button id="removeBtn" class="text-btn">Remove</button>
+            </div>
+            <div id="preview"></div>
+          </div>
+
+          <button id="analyzeBtn" class="analyze-btn" disabled>Analyze Media</button>
+          <p class="notice">Demo frontend: the prediction button currently simulates a result. The trained AI model will be connected in the backend phase.</p>
+        </div>
+
+        <div class="result-panel">
+          <div class="result-header">
+            <span class="eyebrow">ANALYSIS RESULT</span>
+            <span id="status" class="status">Waiting</span>
+          </div>
+
+          <div id="emptyResult" class="empty-result">
+            <div class="result-icon">◎</div>
+            <h3>No analysis yet</h3>
+            <p>Upload a file and click <b>Analyze Media</b> to see the result.</p>
+          </div>
+
+          <div id="result" class="result hidden">
+            <div id="resultBadge" class="result-badge">FAKE</div>
+            <div class="confidence">
+              <div class="confidence-top">
+                <span>Confidence</span>
+                <strong id="confidenceValue">94.2%</strong>
+              </div>
+              <div class="bar"><div id="confidenceBar"></div></div>
+            </div>
+
+            <div class="evidence">
+              <div>
+                <span>Input Type</span>
+                <strong id="resultMode">Image</strong>
+              </div>
+              <div>
+                <span>Model</span>
+                <strong>Xception</strong>
+              </div>
+              <div>
+                <span>Status</span>
+                <strong id="resultMessage">Demo prediction</strong>
+              </div>
+            </div>
+
+            <div class="disclaimer">
+              <strong>Important:</strong> This result is a frontend demonstration only. It is not a real forensic prediction until the trained deepfake model is connected.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="info-section">
+      <div class="section-heading">
+        <span class="eyebrow">PROPOSED PIPELINE</span>
+        <h2>How the system will work</h2>
+      </div>
+
+      <div class="pipeline">
+        <div class="step"><b>01</b><h3>Input</h3><p>Image, video, audio, or video with audio.</p></div>
+        <div class="step"><b>02</b><h3>Preprocessing</h3><p>Face extraction, frame sampling, or audio preprocessing.</p></div>
+        <div class="step"><b>03</b><h3>AI Analysis</h3><p>Xception, Bi-GRU and Wav2Vec2 depending on input.</p></div>
+        <div class="step"><b>04</b><h3>Prediction</h3><p>Return REAL/FAKE with confidence and evidence.</p></div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div>
+        <span class="eyebrow">PROJECT</span>
+        <h2>DeepGuard AI</h2>
+      </div>
+      <p>A student deepfake detection platform designed to evolve from an image detector into a multimodal visual-audio forensic system.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>DeepGuard AI</span>
+    <span>Deepfake Detection System • Project Prototype</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
